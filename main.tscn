@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://d1hgb42qf0vj3"]
+
+[ext_resource type="Script" uid="uid://c3p6iix0c7xbg" path="res://player.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://titpxjhecpxj" path="res://IMG_4859 1.jpg" id="1_272bh"]
+[ext_resource type="Texture2D" uid="uid://cb51agorefaar" path="res://IMG_4859.jpg" id="2_5vw27"]
+[ext_resource type="Texture2D" uid="uid://0o1yepmd21ps" path="res://image__1_-removebg-preview.png" id="4_1bvp3"]
+[ext_resource type="FontFile" uid="uid://d0dptmxobkjkp" path="res://PixelifySans-VariableFont_wght.ttf" id="5_7mycd"]
+[ext_resource type="Texture2D" uid="uid://wbu1tj62itgl" path="res://image-removebg-preview.png" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://dhsjjynw8mp7l" path="res://image-removebg-preview-2.png" id="7_5vw27"]
+[ext_resource type="Texture2D" uid="uid://cgd5wnbf02sxt" path="res://IMG_4861.jpg" id="8_kek77"]
+[ext_resource type="Texture2D" uid="uid://b6o5ygm17jv6d" path="res://image__3_-removebg-preview.png" id="9_4c57u"]
+[ext_resource type="Texture2D" uid="uid://bswb5gnv87fsu" path="res://image__2_-removebg-preview.png" id="10_efxa6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gg7cy"]
+size = Vector2(141.30438, 312.8355)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snxfc"]
+size = Vector2(11.75, 105)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(93, 275)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4omj"]
+size = Vector2(202, 303)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_joat4"]
+size = Vector2(223, 331)
+
+[node name="Node2D" type="Node2D" unique_id=1431116354]
+
+[node name="SpriteBackground2" type="Sprite2D" parent="." unique_id=909631]
+position = Vector2(576.99994, 347)
+scale = Vector2(0.2941469, 0.23743387)
+texture = ExtResource("1_272bh")
+
+[node name="SpriteBackground" type="Sprite2D" parent="." unique_id=1887969192]
+position = Vector2(602, 331)
+scale = Vector2(0.2802579, 0.228836)
+texture = ExtResource("2_5vw27")
+
+[node name="SpriteBackground3" type="Sprite2D" parent="." unique_id=911579829]
+visible = false
+position = Vector2(564.875, 328.00003)
+scale = Vector2(1.2285177, 0.95050216)
+texture = ExtResource("8_kek77")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=2079426773]
+script = ExtResource("1_0xm2m")
+
+[node name="Timer" type="Timer" parent="Player" unique_id=258297011]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="SpritePlayer" type="Sprite2D" parent="Player" unique_id=1256458448]
+position = Vector2(198.03615, 442.1126)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_1bvp3")
+
+[node name="PickupArea" type="Area2D" parent="Player" unique_id=785508396]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PickupArea" unique_id=2116959424]
+position = Vector2(191, 438.41776)
+shape = SubResource("RectangleShape2D_gg7cy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player" unique_id=2072142678]
+
+[node name="OldMan" type="Label" parent="Player/CanvasLayer" unique_id=1811649436]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = -135.0
+offset_right = 131.4284
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.6, 0.6)
+theme_override_fonts/font = ExtResource("5_7mycd")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="Basket" type="Area2D" parent="." unique_id=1465986598 groups=["basket"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Basket" unique_id=1500836518]
+position = Vector2(1143.875, 430.5)
+shape = SubResource("RectangleShape2D_snxfc")
+
+[node name="OldMan" type="Area2D" parent="." unique_id=748548308 groups=["OldMan"]]
+visible = false
+position = Vector2(897, 397)
+
+[node name="Sprite2D" type="Sprite2D" parent="OldMan" unique_id=1007492831 groups=["OldMan"]]
+position = Vector2(124, 32.99997)
+scale = Vector2(0.51581025, 0.46964586)
+texture = ExtResource("5_lquwl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OldMan" unique_id=1158131491]
+position = Vector2(127.5, 29.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Coil" type="Sprite2D" parent="." unique_id=699507276]
+visible = false
+position = Vector2(946, 396)
+scale = Vector2(0.21484378, 0.1439394)
+texture = ExtResource("7_5vw27")
+
+[node name="HomelessGuy" type="Area2D" parent="." unique_id=1711225995]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HomelessGuy" unique_id=816360344]
+position = Vector2(233, 299.5)
+shape = SubResource("RectangleShape2D_a4omj")
+
+[node name="Sprite2D" type="Sprite2D" parent="HomelessGuy" unique_id=2141209999]
+position = Vector2(239.00003, 310.00003)
+scale = Vector2(0.43392354, 0.3639937)
+texture = ExtResource("9_4c57u")
+
+[node name="SunglassesGuy" type="Area2D" parent="." unique_id=1367332744]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SunglassesGuy" unique_id=1239702081]
+position = Vector2(1054.5, 285.5)
+shape = SubResource("RectangleShape2D_joat4")
+
+[node name="Sprite2D" type="Sprite2D" parent="SunglassesGuy" unique_id=721813833]
+position = Vector2(1057.5, 295.5)
+scale = Vector2(0.46296299, 0.3787425)
+texture = ExtResource("10_efxa6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1515495925]
+
+[node name="HomelessGuy" type="Label" parent="CanvasLayer" unique_id=1059099076]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_7mycd")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=2133768774]
+
+[node name="Sunglasses Guy" type="Label" parent="CanvasLayer2" unique_id=2120051213]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
+[connection signal="area_entered" from="Player/PickupArea" to="Player" method="_on_pickup_area_area_entered"]
